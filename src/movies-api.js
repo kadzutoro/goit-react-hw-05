@@ -14,7 +14,7 @@ export const fetchData = async (path = '', newParams= {} ) => {
     return data;
 };
 
-export const imgbaseURL = 'https://image.tmdb.org/t/p/w500'
+export const imgBaseURL = 'https://image.tmdb.org/t/p/w500'
 
 
 

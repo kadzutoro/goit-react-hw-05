@@ -11,13 +11,13 @@ const buildLinkClass = ({ isActive }) => {
 
   const Navigation = () => {
     return (
-        <header>
+        <header className={css.header}>
             <div>
                 <Link to='/'>
                 <GiCrackedDisc className={css.logo} size={40} />
                 </Link>
             </div>
-            <nav>
+            <nav className={css.navigation}>
                 <NavLink to='/' className={buildLinkClass}>
                     Home
                 </NavLink>
