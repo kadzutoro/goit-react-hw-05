@@ -31,12 +31,11 @@ const MovieDetailsPage = () => {
                 setIsLoading(false);
             }
         }
-        getMovieById();
-    }, [movieId]);
 
-    if (!movie) {
-        return <Loader />;
-    }
+        if (movieId !== movie?.id) {
+            getMovieById();
+        }
+    }, [movieId, movie?.id]);
 
     return (
         <div>
@@ -45,7 +44,7 @@ const MovieDetailsPage = () => {
                 <div className={css.poster}>
                     <img
                         src={createImgURL(movie?.poster_path)}
-                        alt={`${movie.title} poster`}
+                        alt={`${movie?.title} poster`}
                     />
                 </div>
                 <div>
@@ -62,7 +61,7 @@ const MovieDetailsPage = () => {
             </div>
             <nav className={css.navigation}>
                 <NavLink to="cast" className={buildLinkClass}>Cast</NavLink>
-                <NavLink to="reviews" className={buildLinkClass}>Reviews</NavLink>
+                <NavLink to="reviews"className={buildLinkClass}>Reviews</NavLink>
             </nav>
             <div>
                 <Suspense fallback={<Loader />}><Outlet /></Suspense>
@@ -70,7 +69,7 @@ const MovieDetailsPage = () => {
             {isLoading && <Loader />}
             <Toaster />
         </div>
-    )
+    );
 }
 
 export default MovieDetailsPage;

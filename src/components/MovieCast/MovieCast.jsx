@@ -19,7 +19,7 @@ const MovieCast = () => {
           const { cast } = await fetchData(`movie/${movieId}/credits`);
           setCredits(cast);
         } catch (error) {
-          toast.error('Oops! Something went wrong. Try reloading the page', { id: 'error' });
+          toast.error('Oops! Something went wrong. Try reloading the page');
         } finally {
           setIsLoading(false);
         }
@@ -38,7 +38,7 @@ const MovieCast = () => {
                         alt={name}
                         />
                     </div>
-                    <div>
+                    <div className={css.actorDesc}>
                         <span className={css.name}>{name}</span>
                         <span className={css.character}>{character}</span>
                     </div>
